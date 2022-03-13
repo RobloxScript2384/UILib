@@ -245,7 +245,6 @@ ToggleTemplate.MouseButton1Down:Connect(function()
 	else
 		LittleBar.BackgroundColor3 = Color3.fromRGB(0,255,0)
 		enabled = not enabled
-		pcall(callback, enabled)
 	end
 end)
 
