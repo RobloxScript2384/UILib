@@ -185,7 +185,7 @@ function objects:CreateButton(name, callback)
 
 if name == "" or nil then return end
 
-callback = callback or function() end
+local callback = callback or function() end
 
 local ButtonTemplate = Instance.new("TextButton")
 
@@ -212,7 +212,7 @@ function objects:CreateToggle(name, callback)
 
 if name == "" or nil then return end
 
-callback = callback or function() end
+local callback = callback or function() end
 
 local actions = {}
 local enabled = false
