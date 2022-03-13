@@ -24,6 +24,7 @@ local mouse = plr:GetMouse()
 local ct = {}
 local te = table.insert
 
+local Blur = Instance.new("BlurEffect")
 local Vecsor = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local SideBar = Instance.new("Frame")
@@ -33,9 +34,12 @@ local TabButtons = Instance.new("ScrollingFrame")
 local UIListLayout = Instance.new("UIListLayout")
 local Tabs = Instance.new("Frame")
 
+Blur.Parent = game:GetService("Lighting")
+
 te(ct,mouse.KeyDown:Connect(function(k)
-	if k == "rightshift" then
+	if k == "z" then
 		Main.Visible = not Main.Visible
+		Blur.Enabled = not Blur.Enabled
 	end
 end))
 
@@ -50,6 +54,7 @@ Main.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 Main.BorderSizePixel = 0
 Main.Position = UDim2.new(0.5, 0, 0.5, 0)
 Main.Size = UDim2.new(0, 600, 0, 350)
+Main.Visible = false
 
 SideBar.Name = "SideBar"
 SideBar.Parent = Main
