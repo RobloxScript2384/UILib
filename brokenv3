@@ -185,7 +185,7 @@ function objects:CreateButton(name, callback)
 
 if name == "" or nil then return end
 
-local callback = callback or function() end
+callback = callback or function() end
 
 local ButtonTemplate = Instance.new("TextButton")
 
@@ -212,13 +212,13 @@ function objects:CreateToggle(name, callback)
 
 if name == "" or nil then return end
 
-local callback = callback or function() end
+callback = callback or function() end
 
 local actions = {}
 local enabled = false
 
 local ToggleTemplate = Instance.new("TextButton")
-local Frame = Instance.new("Frame")
+local LittleBar = Instance.new("Frame")
 
 ToggleTemplate.Name = name
 ToggleTemplate.Parent = TabFrameTemplate
