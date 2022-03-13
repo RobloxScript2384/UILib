@@ -212,6 +212,8 @@ function objects:CreateToggle(name, callback)
 
 if name == "" or nil then return end
 
+local callback = callback or function() end
+
 local actions = {}
 local enabled = false
 
