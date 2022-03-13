@@ -239,13 +239,15 @@ LittleBar.BorderSizePixel = 0
 LittleBar.Position = UDim2.new(0, 0, 1, 0)
 LittleBar.Size = UDim2.new(0, 412, 0, 1)
 
-local function Fire()
-	enabled = not enabled
-	ToggleTemplate.BackgroundColor3 = enabled and Color3.fromRGB(255,0,0) or Color3.fromRGB(0,255,0)
-	pcall(callback, enabled)
-end
-
-ToggleTemplate.MouseButton1Down:Connect(Fire)
+ToggleTemplate.MouseButton1Down:Connect(function()
+	if enabled == false then
+		LittleBar.BackgroundColor3 = Color3.fromRGB(255,0,0)
+	else
+		LittleBar.BackgroundColor3 = Color3.fromRGB(0,255,0)
+		enabled = not enabled
+		pcall(callback, enabled)
+	end
+end)
 
 end
 return objects
