@@ -215,7 +215,7 @@ if name == "" or nil then return end
 local callback = callback or function() end
 
 local actions = {}
-local enabled = false
+local toggled = false
 
 local ToggleTemplate = Instance.new("TextButton")
 local LittleBar = Instance.new("Frame")
@@ -240,15 +240,13 @@ LittleBar.Position = UDim2.new(0, 0, 1, 0)
 LittleBar.Size = UDim2.new(0, 412, 0, 1)
 
 ToggleTemplate.MouseButton1Down:Connect(function()
-	if enabled == false then
-		enabled = true
+	if toggled == true then
 		LittleBar.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
-		pcall(callback, enabled)
 	else
-		enabled = false
 		LittleBar.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-		pcall(callback, enabled)
 	end
+	toggled = not toggled
+	pcall(callback, toggled)
 end)
 
 end
