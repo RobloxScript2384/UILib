@@ -1,6 +1,7 @@
 local cumfuck = {}
 
 function cumfuck:CreateWindow(name)
+
     local ScreenGui = Instance.new("ScreenGui")
     local main = Instance.new("Frame")
     local UICorner = Instance.new("UICorner")
@@ -190,9 +191,10 @@ function cumfuck:CreateWindow(name)
         UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
         UIListLayout_2.Padding = UDim.new(0.0199999996, 0)
         
-        MainTabForUI.CanvasSize = UDim2.new(0, 0, 0, UIListLayout_2.AbsoluteContentSize.Y)
-        listt.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y)
+        MainTabForUI.CanvasSize = UDim2.new(0, UIListLayout.AbsoluteContentSize.X, 0, 0)
     end
+    
+    listt.CanvasSize = UDim2.new(0, UIListLayout.AbsoluteContentSize.X, 0, 0)
     
     return tabs
 
