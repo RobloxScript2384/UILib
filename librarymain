@@ -14,6 +14,12 @@ function cumfuck:CreateWindow(name)
     local UIListLayout = Instance.new("UIListLayout")
     local listbs = Instance.new("Frame")
     
+    coroutine.wrap(function()
+        while wait() do
+            listt.CanvasSize = UDim2.new(0, UIListLayout.AbsoluteContentSize.X, 0, UIListLayout.AbsoluteContentSize.Y)
+        end
+    end)()
+    
     --Properties:
     
     ScreenGui.Name = "&*\"&*"
@@ -161,6 +167,12 @@ function cumfuck:CreateWindow(name)
         local MainTabForUI = Instance.new("ScrollingFrame")
         local UIListLayout_2 = Instance.new("UIListLayout")
         
+        coroutine.wrap(function()
+            while wait() do
+                MainTabForUI.CanvasSize = UDim2.new(0, UIListLayout.AbsoluteContentSize.X, 0, UIListLayout.AbsoluteContentSize.Y)
+            end
+        end)()
+        
         TabButton.Name = name
         TabButton.Parent = listt
         TabButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -191,10 +203,7 @@ function cumfuck:CreateWindow(name)
         UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
         UIListLayout_2.Padding = UDim.new(0.0199999996, 0)
         
-        MainTabForUI.CanvasSize = UDim2.new(0, UIListLayout.AbsoluteContentSize.X, 0, 0)
     end
-    
-    listt.CanvasSize = UDim2.new(0, UIListLayout.AbsoluteContentSize.X, 0, 0)
     
     return tabs
 
