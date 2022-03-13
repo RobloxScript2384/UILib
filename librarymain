@@ -14,12 +14,6 @@ function cumfuck:CreateWindow(name)
     local UIListLayout = Instance.new("UIListLayout")
     local listbs = Instance.new("Frame")
     
-    coroutine.wrap(function()
-        while wait() do
-            listt.CanvasSize = UDim2.new(0, UIListLayout.AbsoluteContentSize.X, 0, UIListLayout.AbsoluteContentSize.Y)
-        end
-    end)()
-    
     --Properties:
     
     ScreenGui.Name = "&*\"&*"
@@ -90,6 +84,18 @@ function cumfuck:CreateWindow(name)
     listbs.Size = UDim2.new(0.999999583, 0, 0.769237518, 0)
     
     -- Scripts:
+    
+    local function HRMV_fake_script() -- listt.AutoResize 
+        local script = Instance.new('LocalScript', listt)
+
+
+        while wait(0.01) do
+            local Canvas = script.Parent
+            local Constraint = script.Parent.UIListLayout
+            Canvas.CanvasSize = UDim2.new(0, Constraint.AbsoluteContentSize.X, 0, Constraint.AbsoluteContentSize.Y)
+        end
+    end
+    coroutine.wrap(HRMV_fake_script)()
     
     local function QIWNN_fake_script() -- tabListBT.mouseclick 
         local script = Instance.new('LocalScript', tabListBT)
@@ -167,12 +173,6 @@ function cumfuck:CreateWindow(name)
         local MainTabForUI = Instance.new("ScrollingFrame")
         local UIListLayout_2 = Instance.new("UIListLayout")
         
-        coroutine.wrap(function()
-            while wait() do
-                MainTabForUI.CanvasSize = UDim2.new(0, UIListLayout.AbsoluteContentSize.X, 0, UIListLayout.AbsoluteContentSize.Y)
-            end
-        end)()
-        
         TabButton.Name = name
         TabButton.Parent = listt
         TabButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -198,10 +198,22 @@ function cumfuck:CreateWindow(name)
         MainTabForUI.CanvasSize = UDim2.new(0, 0, 0, 0)
         MainTabForUI.ScrollBarThickness = 0
         
-        UIListLayout_2.Parent = Tab_2
+        UIListLayout_2.Parent = MainTabForUI
         UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
         UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
         UIListLayout_2.Padding = UDim.new(0.0199999996, 0)
+        
+        local function HRMVJ_fake_script() -- listt.AutoResize 
+            local script = Instance.new('LocalScript', MainTabForUI)
+
+
+            while wait(0.01) do
+                local Canvas = script.Parent
+                local Constraint = script.Parent.UIListLayout
+                Canvas.CanvasSize = UDim2.new(0, Constraint.AbsoluteContentSize.X, 0, Constraint.AbsoluteContentSize.Y)
+            end
+        end
+        coroutine.wrap(HRMVJ_fake_script)()
         
     end
     
