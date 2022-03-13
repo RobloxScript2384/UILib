@@ -108,27 +108,6 @@ local function KVVDN_fake_script() -- TabButtons.AutoResize
 	end
 end
 coroutine.wrap(KVVDN_fake_script)()
-local function MVRAW_fake_script() -- TabButtons.MouseClick 
-	local script = Instance.new('LocalScript', TabButtons)
-
-	local tabs = script.Parent.Parent.Parent.Tabs
-	
-	for i,v in pairs(script.Parent:GetChildren()) do
-		if v:IsA("TextButton") or v:IsA('ImageButton') then
-			v.MouseButton1Click:Connect(function()
-				if tabs:FindFirstChild(v.Name) then
-					tabs:FindFirstChild(v.Name):TweenPosition(UDim2.new(0.017, 0,0.016, 0),"Out","Quint", 0.7, true)
-					for a,e in pairs(tabs:GetChildren()) do
-						if e.Name ~= v.Name then
-							e:TweenPosition(UDim2.new(1.1, 0,0.016, 0),"Out","Quint", 0.5, true)
-						end
-					end
-				end
-			end)
-		end
-	end
-end
-coroutine.wrap(MVRAW_fake_script)()
 
 local tabs = {}
 
@@ -181,6 +160,28 @@ end
 coroutine.wrap(SLEAJGJ_fake_script)()
 
 end
+
+local function MVRAW_fake_script() -- TabButtons.MouseClick 
+	local script = Instance.new('LocalScript', TabButtons)
+
+	local tabs = script.Parent.Parent.Parent.Tabs
+	
+	for i,v in pairs(script.Parent:GetChildren()) do
+		if v:IsA("TextButton") or v:IsA('ImageButton') then
+			v.MouseButton1Click:Connect(function()
+				if tabs:FindFirstChild(v.Name) then
+					tabs:FindFirstChild(v.Name):TweenPosition(UDim2.new(0.017, 0,0.016, 0),"Out","Quint", 0.7, true)
+					for a,e in pairs(tabs:GetChildren()) do
+						if e.Name ~= v.Name then
+							e:TweenPosition(UDim2.new(1.1, 0,0.016, 0),"Out","Quint", 0.5, true)
+						end
+					end
+				end
+			end)
+		end
+	end
+end
+coroutine.wrap(MVRAW_fake_script)()
 return tabs
 
 end
