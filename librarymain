@@ -201,7 +201,7 @@ function cumfuck:CreateWindow(name)
     end
     return tabs
     
-    for i,v in pairs(MainTabForUI:GetChildren()) do
+    for i,v in pairs(listt:GetChildren()) do
         listt.CanvasSize = UDim2.new(0, 0, 0, UIListLayout_2.AbsoluteContentSize.Y)
     end
 
