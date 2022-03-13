@@ -182,7 +182,6 @@ local function MVRAW_fake_script() -- TabButtons.MouseClick
 	end
 end
 coroutine.wrap(MVRAW_fake_script)()
-return tabs
 
 end
 return lib
