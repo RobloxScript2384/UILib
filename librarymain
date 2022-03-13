@@ -85,18 +85,6 @@ function cumfuck:CreateWindow(name)
     
     -- Scripts:
     
-    local function HRMV_fake_script() -- listt.AutoResize 
-        local script = Instance.new('LocalScript', listt)
-
-
-        while wait(0.01) do
-            local Canvas = script.Parent
-            local Constraint = script.Parent.UIListLayout
-            Canvas.CanvasSize = UDim2.new(0, Constraint.AbsoluteContentSize.X, 0, Constraint.AbsoluteContentSize.Y)
-        end
-    end
-    coroutine.wrap(HRMV_fake_script)()
-    
     local function QIWNN_fake_script() -- tabListBT.mouseclick 
         local script = Instance.new('LocalScript', tabListBT)
     
@@ -207,15 +195,27 @@ function cumfuck:CreateWindow(name)
             local script = Instance.new('LocalScript', MainTabForUI)
 
 
-            while wait(0.01) do
+
                 local Canvas = script.Parent
                 local Constraint = script.Parent.UIListLayout
                 Canvas.CanvasSize = UDim2.new(0, Constraint.AbsoluteContentSize.X, 0, Constraint.AbsoluteContentSize.Y)
-            end
+
         end
         coroutine.wrap(HRMVJ_fake_script)()
         
     end
+    
+    local function HRMV_fake_script() -- listt.AutoResize 
+        local script = Instance.new('LocalScript', listt)
+
+
+
+            local Canvas = script.Parent
+            local Constraint = script.Parent.UIListLayout
+            Canvas.CanvasSize = UDim2.new(0, Constraint.AbsoluteContentSize.X, 0, Constraint.AbsoluteContentSize.Y)
+
+    end
+    coroutine.wrap(HRMV_fake_script)()
     
     return tabs
 
