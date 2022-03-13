@@ -140,6 +140,7 @@ TabFrameTemplate.BackgroundTransparency = 1.000
 TabFrameTemplate.BorderSizePixel = 0
 TabFrameTemplate.Position = UDim2.new(0, 0, 0.0314285718, 0)
 TabFrameTemplate.Size = UDim2.new(0, 428, 0, 327)
+TabFrameTemplate.Visible = false
 TabFrameTemplate.CanvasSize = UDim2.new(0, 0, 0, 0)
 TabFrameTemplate.ScrollBarThickness = 0
 
