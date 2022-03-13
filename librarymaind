@@ -170,10 +170,10 @@ local function MVRAW_fake_script() -- TabButtons.MouseClick
 		if v:IsA("TextButton") or v:IsA('ImageButton') then
 			v.MouseButton1Click:Connect(function()
 				if tabs:FindFirstChild(v.Name) then
-					tabs:FindFirstChild(v.Name):TweenPosition(UDim2.new(0.017, 0,0.016, 0),"Out","Quint", 0.7, true)
+					tabs:FindFirstChild(v.Name).Visible = true
 					for a,e in pairs(tabs:GetChildren()) do
 						if e.Name ~= v.Name then
-							e:TweenPosition(UDim2.new(1.1, 0,0.016, 0),"Out","Quint", 0.5, true)
+							e.Visible = false
 						end
 					end
 				end
