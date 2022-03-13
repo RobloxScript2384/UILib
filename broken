@@ -220,14 +220,14 @@ local enabled = false
 local ToggleTemplate = Instance.new("TextButton")
 local Frame = Instance.new("Frame")
 
-ToggleTemplate.Name = "ToggleTemplate"
+ToggleTemplate.Name = name
 ToggleTemplate.Parent = TabFrameTemplate
 ToggleTemplate.BackgroundColor3 = Color3.fromRGB(43, 43, 43)
 ToggleTemplate.BorderSizePixel = 0
 ToggleTemplate.Position = UDim2.new(0.0186915882, 0, 0, 0)
 ToggleTemplate.Size = UDim2.new(0, 412, 0, 31)
 ToggleTemplate.Font = Enum.Font.SourceSans
-ToggleTemplate.Text = "Toggle"
+ToggleTemplate.Text = name
 ToggleTemplate.TextColor3 = Color3.fromRGB(255, 255, 255)
 ToggleTemplate.TextScaled = true
 ToggleTemplate.TextSize = 14.000
@@ -240,15 +240,9 @@ LittleBar.Position = UDim2.new(0, 0, 1, 0)
 LittleBar.Size = UDim2.new(0, 412, 0, 1)
 
 local function Fire()
-	if enabled == false then
-		enabled = true
-		LittleBar.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
-		pcall(callback, enabled)
-	else
-		enabled = false
-		LittleBar.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-		pcall(callback, enabled)
-	end
+	enabled = not enabled
+	ToggleTemplate.BackgroundColor3 = enabled and Color3.fromRGB(255,0,0) or Color3.fromRGB(0,255,0)
+	pcall(callback, enabled)
 end
 
 ToggleTemplate.MouseButton1Down:Connect(Fire)
