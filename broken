@@ -241,10 +241,13 @@ LittleBar.Size = UDim2.new(0, 412, 0, 1)
 
 ToggleTemplate.MouseButton1Down:Connect(function()
 	if enabled == false then
-		LittleBar.BackgroundColor3 = Color3.fromRGB(255,0,0)
+		enabled = true
+		LittleBar.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+		pcall(callback, enabled)
 	else
-		LittleBar.BackgroundColor3 = Color3.fromRGB(0,255,0)
-		enabled = not enabled
+		enabled = false
+		LittleBar.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+		pcall(callback, enabled)
 	end
 end)
 
