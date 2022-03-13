@@ -191,31 +191,11 @@ function cumfuck:CreateWindow(name)
         UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
         UIListLayout_2.Padding = UDim.new(0.0199999996, 0)
         
-        local function HRMVJ_fake_script() -- listt.AutoResize 
-            local script = Instance.new('LocalScript', MainTabForUI)
-
-
-
-                local Canvas = script.Parent
-                local Constraint = script.Parent.UIListLayout
-                Canvas.CanvasSize = UDim2.new(0, Constraint.AbsoluteContentSize.X, 0, Constraint.AbsoluteContentSize.Y)
-
-        end
-        coroutine.wrap(HRMVJ_fake_script)()
+        MainTabForUI.CanvasSize = UDim2.new(0, UIListLayout_2.AbsoluteContentSize.X, 0, UIListLayout_2.AbsoluteContentSize.Y)
         
     end
     
-    local function HRMV_fake_script() -- listt.AutoResize 
-        local script = Instance.new('LocalScript', listt)
-
-
-
-            local Canvas = script.Parent
-            local Constraint = script.Parent.UIListLayout
-            Canvas.CanvasSize = UDim2.new(0, Constraint.AbsoluteContentSize.X, 0, Constraint.AbsoluteContentSize.Y)
-
-    end
-    coroutine.wrap(HRMV_fake_script)()
+    listt.CanvasSize = UDim2.new(0, UIListLayout.AbsoluteContentSize.X, 0, UIListLayout.AbsoluteContentSize.Y)
     
     return tabs
 
