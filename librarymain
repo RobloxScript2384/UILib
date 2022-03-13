@@ -12,7 +12,6 @@ function cumfuck:CreateWindow(name)
     local listt = Instance.new("ScrollingFrame")
     local UIListLayout = Instance.new("UIListLayout")
     local listbs = Instance.new("Frame")
-    local UIListLayout_2 = Instance.new("UIListLayout")
     
     --Properties:
     
@@ -135,17 +134,6 @@ function cumfuck:CreateWindow(name)
         end)
     end
     coroutine.wrap(QIWNN_fake_script)()
-    local function HRMV_fake_script() -- listt.AutoResize 
-        local script = Instance.new('LocalScript', listt)
-    
-        
-        while wait(0.01) do
-            local Canvas = script.Parent
-            local Constraint = script.Parent.UIListLayout
-            Canvas.CanvasSize = UDim2.new(0, Constraint.AbsoluteContentSize.X, 0, Constraint.AbsoluteContentSize.Y)
-        end
-    end
-    coroutine.wrap(HRMV_fake_script)()
     local function FIQDLI_fake_script() -- listt.mouseclick 
         local script = Instance.new('LocalScript', listt)
     
@@ -167,17 +155,6 @@ function cumfuck:CreateWindow(name)
         end
     end
     coroutine.wrap(FIQDLI_fake_script)()
-    local function OYUNX_fake_script() -- Tab_2.AutoResize 
-        local script = Instance.new('LocalScript', Tab_2)
-    
-        
-        while wait(0.01) do
-            local Canvas = script.Parent
-            local Constraint = script.Parent.UIListLayout
-            Canvas.CanvasSize = UDim2.new(0, Constraint.AbsoluteContentSize.X, 0, Constraint.AbsoluteContentSize.Y)
-        end
-    end
-    coroutine.wrap(OYUNX_fake_script)()
     
     local tabs = {}
     
@@ -186,6 +163,7 @@ function cumfuck:CreateWindow(name)
         
         local TabButton = Instance.new("TextButton")
         local MainTabForUI = Instance.new("ScrollingFrame")
+        local UIListLayout_2 = Instance.new("UIListLayout")
         
         TabButton.Name = name
         TabButton.Parent = listt
@@ -211,8 +189,21 @@ function cumfuck:CreateWindow(name)
         MainTabForUI.Size = UDim2.new(0.999999583, 0, 0.971154928, 0)
         MainTabForUI.CanvasSize = UDim2.new(0, 0, 0, 0)
         MainTabForUI.ScrollBarThickness = 0
+        
+        UIListLayout_2.Parent = Tab_2
+        UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+        UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+        UIListLayout_2.Padding = UDim.new(0.0199999996, 0)
+        
+        for i,v in pairs(MainTabForUI:GetChildren()) do
+            MainTabForUI.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y)
+        end
     end
     return tabs
+    
+    for i,v in pairs(MainTabForUI:GetChildren()) do
+        listt.CanvasSize = UDim2.new(0, 0, 0, UIListLayout_2.AbsoluteContentSize.Y)
+    end
 
 end
 return cumfuck
