@@ -138,7 +138,8 @@ TabFrameTemplate.Active = true
 TabFrameTemplate.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TabFrameTemplate.BackgroundTransparency = 1.000
 TabFrameTemplate.BorderSizePixel = 0
-TabFrameTemplate.Size = UDim2.new(0, 428, 0, 350)
+TabFrameTemplate.Position = UDim2.new(0, 0, 0.0314285718, 0)
+TabFrameTemplate.Size = UDim2.new(0, 428, 0, 327)
 TabFrameTemplate.CanvasSize = UDim2.new(0, 0, 0, 0)
 TabFrameTemplate.ScrollBarThickness = 0
 
@@ -176,6 +177,36 @@ local function SLEAJGJ_fake_script() -- TabFrameTemplate.AutoResize
 	end
 end
 coroutine.wrap(SLEAJGJ_fake_script)()
+
+local objects = {}
+
+function objects:CreateButton(name, callback)
+
+if text == "" or nil then return end
+
+local callback = callback or function() end
+
+local ButtonTemplate = Instance.new("TextButton")
+
+ButtonTemplate.Name = name
+ButtonTemplate.Parent = TabFrameTemplate
+ButtonTemplate.BackgroundColor3 = Color3.fromRGB(43, 43, 43)
+ButtonTemplate.BorderSizePixel = 0
+ButtonTemplate.Position = UDim2.new(0.0186915882, 0, 0, 0)
+ButtonTemplate.Size = UDim2.new(0, 412, 0, 31)
+ButtonTemplate.Font = Enum.Font.SourceSans
+ButtonTemplate.Text = name
+ButtonTemplate.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTemplate.TextScaled = true
+ButtonTemplate.TextSize = 14.000
+ButtonTemplate.TextWrapped = true
+
+ButtonTemplate.MouseButton1Down:Connect(function()
+	pcall(callback)
+end)
+
+end
+return objects
 
 end
 return tabs
