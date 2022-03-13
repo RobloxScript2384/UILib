@@ -219,7 +219,7 @@ local ToggleTemplate = Instance.new("TextButton")
 local Frame = Instance.new("Frame")
 
 ToggleTemplate.Name = "ToggleTemplate"
-ToggleTemplate.Parent = game.ServerScriptService
+ToggleTemplate.Parent = TabFrameTemplate
 ToggleTemplate.BackgroundColor3 = Color3.fromRGB(43, 43, 43)
 ToggleTemplate.BorderSizePixel = 0
 ToggleTemplate.Position = UDim2.new(0.0186915882, 0, 0, 0)
