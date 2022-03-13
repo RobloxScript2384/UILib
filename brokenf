@@ -240,7 +240,7 @@ LittleBar.Position = UDim2.new(0, 0, 1, 0)
 LittleBar.Size = UDim2.new(0, 412, 0, 1)
 
 ToggleTemplate.MouseButton1Down:Connect(function()
-	if toggled == true then
+	if toggled == false then
 		LittleBar.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
 	else
 		LittleBar.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
