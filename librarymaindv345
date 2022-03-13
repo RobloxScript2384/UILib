@@ -183,7 +183,7 @@ local objects = {}
 
 function objects:CreateButton(name, callback)
 
-if text == "" or nil then return end
+if name == "" or nil then return end
 
 local callback = callback or function() end
 
@@ -205,6 +205,51 @@ ButtonTemplate.TextWrapped = true
 ButtonTemplate.MouseButton1Down:Connect(function()
 	pcall(callback)
 end)
+
+end
+
+function objects:CreateToggle(name, callback)
+
+if name == "" or nil then return end
+
+local actions = {}
+local enabled = false
+
+local ToggleTemplate = Instance.new("TextButton")
+local Frame = Instance.new("Frame")
+
+ToggleTemplate.Name = "ToggleTemplate"
+ToggleTemplate.Parent = game.ServerScriptService
+ToggleTemplate.BackgroundColor3 = Color3.fromRGB(43, 43, 43)
+ToggleTemplate.BorderSizePixel = 0
+ToggleTemplate.Position = UDim2.new(0.0186915882, 0, 0, 0)
+ToggleTemplate.Size = UDim2.new(0, 412, 0, 31)
+ToggleTemplate.Font = Enum.Font.SourceSans
+ToggleTemplate.Text = "Toggle"
+ToggleTemplate.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleTemplate.TextScaled = true
+ToggleTemplate.TextSize = 14.000
+ToggleTemplate.TextWrapped = true
+
+LittleBar.Parent = ToggleTemplate
+LittleBar.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+LittleBar.BorderSizePixel = 0
+LittleBar.Position = UDim2.new(0, 0, 1, 0)
+LittleBar.Size = UDim2.new(0, 412, 0, 1)
+
+local function Fire()
+	if enabled == false then
+		enabled = true
+		LittleBar.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+		pcall(callback, enabled)
+	else
+		enabled = false
+		LittleBar.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+		pcall(callback, enabled)
+	end
+end
+
+ToggleTemplate.MouseButton1Down:Connect(Fire)
 
 end
 return objects
