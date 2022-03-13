@@ -1,0 +1,220 @@
+local cumfuck = {}
+
+function cumfuck:CreateWindow(name)
+    local ScreenGui = Instance.new("ScreenGui")
+    local main = Instance.new("Frame")
+    local UICorner = Instance.new("UICorner")
+    local bart = Instance.new("Frame")
+    local UICorner_2 = Instance.new("UICorner")
+    local tabListBT = Instance.new("ImageButton")
+    local backlt = Instance.new("Frame")
+    local UICorner_3 = Instance.new("UICorner")
+    local listt = Instance.new("ScrollingFrame")
+    local UIListLayout = Instance.new("UIListLayout")
+    local listbs = Instance.new("Frame")
+    local UIListLayout_2 = Instance.new("UIListLayout")
+    
+    --Properties:
+    
+    ScreenGui.Name = "&*\"&*"
+    ScreenGui.Parent = game.CoreGui
+    ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    
+    main.Name = "@main/"..name
+    main.Parent = ScreenGui
+    main.AnchorPoint = Vector2.new(0.5, 0.5)
+    main.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+    main.BorderSizePixel = 0
+    main.ClipsDescendants = true
+    main.Position = UDim2.new(0.5, 0, 0.5, 0)
+    main.Size = UDim2.new(0.390709192, 0, 0.574846923, 0)
+    
+    UICorner.Parent = main
+    
+    bart.Name = "@bar[t]"
+    bart.Parent = main
+    bart.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    bart.BorderSizePixel = 0
+    bart.Size = UDim2.new(0.999999583, 0, 0.230762407, 0)
+    
+    UICorner_2.Parent = bart
+    
+    tabListBT.Name = "tabListBT"
+    tabListBT.Parent = bart
+    tabListBT.BackgroundTransparency = 1.000
+    tabListBT.BorderSizePixel = 0
+    tabListBT.LayoutOrder = 2
+    tabListBT.Position = UDim2.new(0.0225991905, 0, 0.161009818, 0)
+    tabListBT.Size = UDim2.new(0.128000006, 0, 0.674000025, 0)
+    tabListBT.ZIndex = 2
+    tabListBT.Image = "rbxassetid://3926305904"
+    tabListBT.ImageRectOffset = Vector2.new(884, 804)
+    tabListBT.ImageRectSize = Vector2.new(36, 36)
+    
+    backlt.Name = "@back[l]{t}"
+    backlt.Parent = main
+    backlt.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
+    backlt.BorderSizePixel = 0
+    backlt.Position = UDim2.new(-0.522000015, 0, 0.0219999999, 0)
+    backlt.Size = UDim2.new(0.248999998, 0, 0.953999996, 0)
+    
+    UICorner_3.Parent = backlt
+    
+    listt.Name = "@list[t]"
+    listt.Parent = backlt
+    listt.Active = true
+    listt.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
+    listt.BackgroundTransparency = 1.000
+    listt.BorderSizePixel = 0
+    listt.Size = UDim2.new(0.999134004, 0, 0.999258757, 0)
+    listt.CanvasSize = UDim2.new(0, 0, 0, 0)
+    listt.ScrollBarThickness = 0
+    
+    UIListLayout.Parent = listt
+    UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    UIListLayout.Padding = UDim.new(0.0199999996, 0)
+    
+    listbs.Name = "@list[bs]"
+    listbs.Parent = main
+    listbs.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    listbs.BackgroundTransparency = 1.000
+    listbs.BorderSizePixel = 0
+    listbs.Position = UDim2.new(0, 0, 0.230762407, 0)
+    listbs.Size = UDim2.new(0.999999583, 0, 0.769237518, 0)
+    
+    UIListLayout_2.Parent = Tab_2
+    UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+    UIListLayout_2.Padding = UDim.new(0.0199999996, 0)
+    
+    -- Scripts:
+    
+    local function QIWNN_fake_script() -- tabListBT.mouseclick 
+        local script = Instance.new('LocalScript', tabListBT)
+    
+        local tweenService = game:GetService("TweenService")
+        local button = script.Parent
+        local list = script.Parent.Parent.Parent["@back[l]{t}"]
+        local enabled = false
+        
+        script.Parent.MouseButton1Down:Connect(function()
+            if list ~= nil then
+                if enabled == false then
+                    
+                    local props2 = {Position = UDim2.new(0.289, 0,0.161, 0)}
+                    local Infoo2 = TweenInfo.new(0.2,Enum.EasingStyle.Linear,Enum.EasingDirection.Out)
+                    local tween2 = tweenService:Create(button,Infoo2,props2)
+                    
+                    local props = {Position = UDim2.new(0.022, 0,0.022, 0)}
+                    local Infoo = TweenInfo.new(0.2,Enum.EasingStyle.Linear,Enum.EasingDirection.Out)
+                    local tween = tweenService:Create(list,Infoo,props)
+                    
+                    tween2:Play()
+                    tween:Play()
+                    tween.Completed:Wait()
+                    
+                    enabled = true
+                else
+                    
+                    local props2 = {Position = UDim2.new(0.023, 0,0.161, 0)}
+                    local Infoo2 = TweenInfo.new(0.2,Enum.EasingStyle.Linear,Enum.EasingDirection.Out)
+                    local tween2 = tweenService:Create(button,Infoo2,props2)
+        
+                    local props = {Position = UDim2.new(-0.522, 0,0.022, 0)}
+                    local Infoo = TweenInfo.new(0.2,Enum.EasingStyle.Linear,Enum.EasingDirection.Out)
+                    local tween = tweenService:Create(list,Infoo,props)
+        
+                    tween2:Play()
+                    tween:Play()
+                    tween.Completed:Wait()
+                    
+                    enabled = false
+                end
+            end
+        end)
+    end
+    coroutine.wrap(QIWNN_fake_script)()
+    local function HRMV_fake_script() -- listt.AutoResize 
+        local script = Instance.new('LocalScript', listt)
+    
+        
+        while wait(0.01) do
+            local Canvas = script.Parent
+            local Constraint = script.Parent.UIListLayout
+            Canvas.CanvasSize = UDim2.new(0, Constraint.AbsoluteContentSize.X, 0, Constraint.AbsoluteContentSize.Y)
+        end
+    end
+    coroutine.wrap(HRMV_fake_script)()
+    local function FIQDLI_fake_script() -- listt.mouseclick 
+        local script = Instance.new('LocalScript', listt)
+    
+        local tabs = script.Parent.Parent.Parent["@list[bs]"]
+        
+        for i,v in pairs(script.Parent:GetChildren()) do
+            if v:IsA("TextButton") then
+                v.MouseButton1Click:Connect(function()
+                    if tabs:FindFirstChild(v.Name) then
+                        tabs:FindFirstChild(v.Name).Visible = true
+                        for a,e in pairs(tabs:GetChildren()) do
+                            if e.Name ~= v.Name then
+                                e.Visible = false
+                            end
+                        end
+                    end
+                end)
+            end
+        end
+    end
+    coroutine.wrap(FIQDLI_fake_script)()
+    local function OYUNX_fake_script() -- Tab_2.AutoResize 
+        local script = Instance.new('LocalScript', Tab_2)
+    
+        
+        while wait(0.01) do
+            local Canvas = script.Parent
+            local Constraint = script.Parent.UIListLayout
+            Canvas.CanvasSize = UDim2.new(0, Constraint.AbsoluteContentSize.X, 0, Constraint.AbsoluteContentSize.Y)
+        end
+    end
+    coroutine.wrap(OYUNX_fake_script)()
+    
+    local tabs = {}
+    
+    function tabs:CreateTab(name)
+        if name == "" or nil then return end
+        
+        local TabButton = Instance.new("TextButton")
+        local MainTabForUI = Instance.new("ScrollingFrame")
+        
+        TabButton.Name = name
+        TabButton.Parent = listt
+        TabButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        TabButton.BackgroundTransparency = 1.000
+        TabButton.BorderSizePixel = 0
+        TabButton.Position = UDim2.new(-2.22473346e-07, 0, 0, 0)
+        TabButton.Size = UDim2.new(1.00000024, 0, 0.116292946, 0)
+        TabButton.Font = Enum.Font.SourceSans
+        TabButton.Text = name
+        TabButton.TextColor3 = Color3.fromRGB(176, 176, 176)
+        TabButton.TextScaled = true
+        TabButton.TextSize = 14.000
+        TabButton.TextWrapped = true
+        
+        MainTabForUI.Name = name
+        MainTabForUI.Parent = listbs
+        MainTabForUI.Active = true
+        MainTabForUI.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        MainTabForUI.BackgroundTransparency = 1.000
+        MainTabForUI.BorderSizePixel = 0
+        MainTabForUI.Position = UDim2.new(0, 0, 0.0288450476, 0)
+        MainTabForUI.Size = UDim2.new(0.999999583, 0, 0.971154928, 0)
+        MainTabForUI.CanvasSize = UDim2.new(0, 0, 0, 0)
+        MainTabForUI.ScrollBarThickness = 0
+    end
+    return tabs
+
+end
+return cumfuck
+
+
