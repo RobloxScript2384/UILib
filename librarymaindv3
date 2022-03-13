@@ -147,6 +147,24 @@ UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
 UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout_2.Padding = UDim.new(0.0199999996, 0)
 
+local function MVRAW_fake_script() -- TabButtonTemplate.MouseClick 
+	local script = Instance.new('LocalScript', TabButtonTemplate)
+
+	local tabs = script.Parent.Parent.Parent.Parent.Tabs
+
+	script.Parent.MouseButton1Click:Connect(function()
+		if tabs:FindFirstChild(script.Parent.Name) then
+			tabs:FindFirstChild(script.Parent.Name).Visible = true
+			for a,e in pairs(tabs:GetChildren()) do
+				if e.Name ~= script.Parent.Name then
+					e.Visible = false
+				end
+			end
+		end
+	end)
+end
+coroutine.wrap(MVRAW_fake_script)()
+
 local function SLEAJGJ_fake_script() -- TabFrameTemplate.AutoResize 
 	local script = Instance.new('LocalScript', TabFrameTemplate)
 
@@ -160,28 +178,7 @@ end
 coroutine.wrap(SLEAJGJ_fake_script)()
 
 end
-
-local function MVRAW_fake_script() -- TabButtons.MouseClick 
-	local script = Instance.new('LocalScript', TabButtons)
-
-	local tabs = script.Parent.Parent.Parent.Tabs
-	
-	for i,v in pairs(script.Parent:GetChildren()) do
-		if v:IsA("TextButton") or v:IsA('ImageButton') then
-			v.MouseButton1Click:Connect(function()
-				if tabs:FindFirstChild(v.Name) then
-					tabs:FindFirstChild(v.Name).Visible = true
-					for a,e in pairs(tabs:GetChildren()) do
-						if e.Name ~= v.Name then
-							e.Visible = false
-						end
-					end
-				end
-			end)
-		end
-	end
-end
-coroutine.wrap(MVRAW_fake_script)()
+return tabs
 
 end
 return lib
