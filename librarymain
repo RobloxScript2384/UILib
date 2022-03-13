@@ -191,9 +191,8 @@ function cumfuck:CreateWindow(name)
         UIListLayout_2.Padding = UDim.new(0.0199999996, 0)
         
         MainTabForUI.CanvasSize = UDim2.new(0, 0, 0, UIListLayout_2.AbsoluteContentSize.Y)
+        listt.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y)
     end
-    
-    listt.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y)
     
     return tabs
 
