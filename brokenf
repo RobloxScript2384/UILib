@@ -19,6 +19,11 @@ function lib:CreateWindow(name)
 
 if name == "" or nil then return end
 
+local plr = game:GetService("Players").LocalPlayer
+local mouse = plr:GetMouse()
+local ct = {}
+local te = table.insert
+
 local Vecsor = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local SideBar = Instance.new("Frame")
@@ -27,6 +32,12 @@ local GameName = Instance.new("TextLabel")
 local TabButtons = Instance.new("ScrollingFrame")
 local UIListLayout = Instance.new("UIListLayout")
 local Tabs = Instance.new("Frame")
+
+te(ct,mouse.KeyDown:Connect(function(k)
+	if k == "rightshift" then
+		Main.Visible = not Main.Visible
+	end
+end))
 
 Vecsor.Name = "Vecsor"
 Vecsor.Parent = game.CoreGui
