@@ -82,11 +82,6 @@ function cumfuck:CreateWindow(name)
     listbs.Position = UDim2.new(0, 0, 0.230762407, 0)
     listbs.Size = UDim2.new(0.999999583, 0, 0.769237518, 0)
     
-    UIListLayout_2.Parent = Tab_2
-    UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
-    UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
-    UIListLayout_2.Padding = UDim.new(0.0199999996, 0)
-    
     -- Scripts:
     
     local function QIWNN_fake_script() -- tabListBT.mouseclick 
