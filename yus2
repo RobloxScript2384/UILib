@@ -266,7 +266,7 @@ function lib:CreateWindow(name)
 		function objects:CreateTextbox(name, disapper, callback)
 
 			if name == "" or nil then return end
-			if disapper == nil then return end
+			if disapper == "" or nil then return end
 
 			local callback = callback or function() end
 
@@ -308,12 +308,14 @@ function lib:CreateWindow(name)
 			Input.TextWrapped = true
 
 			Input.FocusLost:Connect(
-				function()
+				function(ep)
+					if ep then
 						if #Input.Text > 0 then
 							pcall(callback, Input.Text)
 							if disapper then
 								Input.Text = ""
 							end
+						end
 					end
 				end
 			)
