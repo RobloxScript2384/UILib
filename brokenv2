@@ -262,6 +262,64 @@ function lib:CreateWindow(name)
 			end)
 
 		end
+
+		function objects:CreateTextbox(name, disapper, callback)
+
+			if name == "" or nil then return end
+			if disapper == "" or nil then return end
+
+			local callback = callback or function() end
+
+
+			local TextBox = Instance.new("Frame")
+			local TextBoxTitle = Instance.new("TextLabel")
+			local Input = Instance.new("TextBox")
+
+			TextBox.Name = name
+			TextBox.Parent = TabFrameTemplate
+			TextBox.BackgroundColor3 = Color3.fromRGB(43, 43, 43)
+			TextBox.BorderSizePixel = 0
+			TextBox.Size = UDim2.new(0, 412, 0, 31)
+
+			TextBoxTitle.Name = "TextBoxTitle"
+			TextBoxTitle.Parent = TextBox
+			TextBoxTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			TextBoxTitle.BackgroundTransparency = 1.000
+			TextBoxTitle.BorderSizePixel = 0
+			TextBoxTitle.Size = UDim2.new(0, 206, 0, 31)
+			TextBoxTitle.Font = Enum.Font.SourceSans
+			TextBoxTitle.Text = name
+			TextBoxTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+			TextBoxTitle.TextScaled = true
+			TextBoxTitle.TextSize = 14.000
+			TextBoxTitle.TextWrapped = true
+
+			Input.Name = "Input"
+			Input.Parent = TextBox
+			Input.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+			Input.BorderSizePixel = 0
+			Input.Position = UDim2.new(0.5, 0, 0.159999996, 0)
+			Input.Size = UDim2.new(0, 196, 0, 21)
+			Input.Font = Enum.Font.SourceSans
+			Input.Text = ""
+			Input.TextColor3 = Color3.fromRGB(255, 255, 255)
+			Input.TextScaled = true
+			Input.TextSize = 14.000
+			Input.TextWrapped = true
+
+			Input.FocusLost:Connect(
+				function(ep)
+					if ep then
+						if #Input.Text > 0 then
+							pcall(callback, Input.Text)
+							if disapper then
+								Input.Text = ""
+							end
+						end
+					end
+				end
+			)
+		end
 		return objects
 
 	end
