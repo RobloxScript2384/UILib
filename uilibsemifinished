@@ -28,6 +28,8 @@ function lib:CreateWindow(name)
 	local TabButtons = Instance.new("ScrollingFrame")
 	local UIListLayout = Instance.new("UIListLayout")
 	local Tabs = Instance.new("Frame")
+	local NotificationsFrame = Instance.new("Frame")
+	local UIListLayout_3 = Instance.new("UIListLayout")
 
 	blur.Parent = game:GetService("Lighting")
 	blur.Enabled = false
@@ -44,6 +46,21 @@ function lib:CreateWindow(name)
 	Main.Position = UDim2.new(0.5, 0, 0.5, 0)
 	Main.Size = UDim2.new(0, 600, 0, 350)
 	Main.Visible = false
+
+	NotificationsFrame.Name = "NotificationsFrame"
+	NotificationsFrame.Parent = Vecsor
+	NotificationsFrame.AnchorPoint = Vector2.new(1, 1)
+	NotificationsFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	NotificationsFrame.BackgroundTransparency = 0.900
+	NotificationsFrame.BorderSizePixel = 0
+	NotificationsFrame.Position = UDim2.new(0.991489351, 0, 0.991071403, 0)
+	NotificationsFrame.Size = UDim2.new(0, 295, 0, 113)
+
+	UIListLayout_3.Parent = NotificationsFrame
+	UIListLayout_3.HorizontalAlignment = Enum.HorizontalAlignment.Right
+	UIListLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
+	UIListLayout_3.VerticalAlignment = Enum.VerticalAlignment.Bottom
+	UIListLayout_3.Padding = UDim.new(0, 10)
 
 	SideBar.Name = "SideBar"
 	SideBar.Parent = Main
@@ -122,6 +139,86 @@ function lib:CreateWindow(name)
 	coroutine.wrap(KVVDN_fake_script)()
 
 	local tabs = {}
+
+	function tabs:Notification(title, desc, time, mode)
+
+		if title == "" or nil then return end
+		if desc == "" or nil then return end
+		if time == "" or nil then return end
+		if mode == "" or nil then return end
+
+		local NotificationTemplate = Instance.new("Frame")
+		local NotificationTitle = Instance.new("TextLabel")
+		local NotificationDescription = Instance.new("TextLabel")
+		local Topbar = Instance.new("Frame")
+		local Bottombar = Instance.new("Frame")
+
+		if mode == 1 then
+			NotificationTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+			NotificationDescription.TextColor3 = Color3.fromRGB(148, 148, 148)
+			Topbar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Bottombar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		elseif mode == 2 then
+			NotificationTitle.TextColor3 = Color3.fromRGB(255, 255, 0)
+			NotificationDescription.TextColor3 = Color3.fromRGB(148, 148, 0)
+			Topbar.BackgroundColor3 = Color3.fromRGB(255, 255, 0)
+			Bottombar.BackgroundColor3 = Color3.fromRGB(255, 255, 0)
+		elseif mode == 3 then
+			NotificationTitle.TextColor3 = Color3.fromRGB(255, 0, 0)
+			NotificationDescription.TextColor3 = Color3.fromRGB(148, 0, 0)
+			Topbar.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+			Bottombar.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+		end
+
+		NotificationTemplate.Name = "NotificationTemplate"
+		NotificationTemplate.Parent = NotificationsFrame
+		NotificationTemplate.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+		NotificationTemplate.BorderSizePixel = 0
+		NotificationTemplate.Position = UDim2.new(0.0406779647, 0, 0.862244904, 0)
+		NotificationTemplate.Size = UDim2.new(0, 283, 0, 108)
+
+		NotificationTitle.Name = "NotificationTitle"
+		NotificationTitle.Parent = NotificationTemplate
+		NotificationTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		NotificationTitle.BackgroundTransparency = 1.000
+		NotificationTitle.BorderSizePixel = 0
+		NotificationTitle.Size = UDim2.new(0, 283, 0, 31)
+		NotificationTitle.Font = Enum.Font.SourceSans
+		NotificationTitle.Text = title
+		NotificationTitle.TextScaled = true
+		NotificationTitle.TextSize = 14.000
+		NotificationTitle.TextWrapped = true
+
+		NotificationDescription.Name = "NotificationDescription"
+		NotificationDescription.Parent = NotificationTemplate
+		NotificationDescription.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		NotificationDescription.BackgroundTransparency = 1.000
+		NotificationDescription.BorderSizePixel = 0
+		NotificationDescription.Position = UDim2.new(0, 0, 0.287037045, 0)
+		NotificationDescription.Size = UDim2.new(0, 283, 0, 56)
+		NotificationDescription.Font = Enum.Font.SourceSans
+		NotificationDescription.Text = desc
+		NotificationDescription.TextScaled = true
+		NotificationDescription.TextSize = 14.000
+		NotificationDescription.TextWrapped = true
+
+		Topbar.Name = "Topbar"
+		Topbar.Parent = NotificationTemplate
+		Topbar.BorderSizePixel = 0
+		Topbar.Position = UDim2.new(0.233215541, 0, 0.287037045, 0)
+		Topbar.Size = UDim2.new(0, 151, 0, 1)
+
+		Bottombar.Name = "Bottombar"
+		Bottombar.Parent = NotificationTemplate
+		Bottombar.BorderSizePixel = 0
+		Bottombar.Position = UDim2.new(0.0424028262, 0, 0.898148119, 0)
+		Bottombar.Size = UDim2.new(0, 258, 0, 5)
+
+		Bottombar:TweenSize(UDim2.new(0, 0,0, 5), "Out", "Linear", time)
+		wait(0.05)
+		NotificationTemplate:Destroy()
+
+	end
 
 	function tabs:CreateTab(name)
 
