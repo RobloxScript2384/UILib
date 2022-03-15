@@ -215,7 +215,7 @@ function lib:CreateWindow(name)
 		Bottombar.Size = UDim2.new(0, 258, 0, 5)
 
 		Bottombar:TweenSize(UDim2.new(0, 0,0, 5), "Out", "Linear", time)
-		wait(0.05)
+		wait(time + 0.1)
 		NotificationTemplate:Destroy()
 
 	end
