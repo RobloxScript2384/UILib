@@ -153,17 +153,17 @@ function lib:CreateWindow(name)
 		local Topbar = Instance.new("Frame")
 		local Bottombar = Instance.new("Frame")
 
-		if mode == "1" then
+		if mode == 1 then
 			NotificationTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
 			NotificationDescription.TextColor3 = Color3.fromRGB(148, 148, 148)
 			Topbar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			Bottombar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		elseif mode == "2" then
+		elseif mode == 2 then
 			NotificationTitle.TextColor3 = Color3.fromRGB(255, 255, 0)
 			NotificationDescription.TextColor3 = Color3.fromRGB(148, 148, 0)
 			Topbar.BackgroundColor3 = Color3.fromRGB(255, 255, 0)
 			Bottombar.BackgroundColor3 = Color3.fromRGB(255, 255, 0)
-		elseif mode == "3" then
+		elseif mode == 3 then
 			NotificationTitle.TextColor3 = Color3.fromRGB(255, 0, 0)
 			NotificationDescription.TextColor3 = Color3.fromRGB(148, 0, 0)
 			Topbar.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
