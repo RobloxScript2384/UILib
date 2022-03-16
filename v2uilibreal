@@ -32,7 +32,7 @@ function lib:CreateWindow(name)
 	local UIListLayout_3 = Instance.new("UIListLayout")
 
 	blur.Parent = game:GetService("Lighting")
-	blur.Enabled = false
+	blur.Enabled = true
 
 	Vecsor.Name = "Vecsor"
 	Vecsor.Parent = game.CoreGui
@@ -45,7 +45,7 @@ function lib:CreateWindow(name)
 	Main.BorderSizePixel = 0
 	Main.Position = UDim2.new(0.5, 0, 0.5, 0)
 	Main.Size = UDim2.new(0, 600, 0, 350)
-	Main.Visible = false
+	Main.Visible = true
 
 	NotificationsFrame.Name = "NotificationsFrame"
 	NotificationsFrame.Parent = Vecsor
