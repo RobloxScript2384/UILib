@@ -1,0 +1,353 @@
+local zerodaylib = {}
+
+function zerodaylib:Window(title)
+-- Instances:
+
+local ZeroDay = Instance.new("ScreenGui")
+local Background = Instance.new("Frame")
+local UIGradient = Instance.new("UIGradient")
+local Main = Instance.new("Frame")
+local DropShadow = Instance.new("ImageLabel")
+local Top = Instance.new("Frame")
+local UIGradient_2 = Instance.new("UIGradient")
+local TabTitle = Instance.new("TextLabel")
+local TabsListButton = Instance.new("ImageButton")
+local TabButtonBack = Instance.new("Frame")
+local TabButtons = Instance.new("ScrollingFrame")
+local UIListLayout = Instance.new("UIListLayout")
+local TabsMain = Instance.new("Frame")
+
+--Properties:
+
+ZeroDay.Name = "ZeroDay"
+ZeroDay.Parent = game.CoreGui
+ZeroDay.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Background.Name = "Background"
+Background.Parent = ZeroDay
+Background.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Background.BorderSizePixel = 0
+Background.Size = UDim2.new(1, 0, 1, 0)
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(170, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(8, 7, 7)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255))}
+UIGradient.Rotation = -90
+UIGradient.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 0.60), NumberSequenceKeypoint.new(0.60, 0.89), NumberSequenceKeypoint.new(0.75, 1.00), NumberSequenceKeypoint.new(1.00, 1.00), NumberSequenceKeypoint.new(1.00, 0.60)}
+UIGradient.Parent = Background
+
+Main.Name = "Main"
+Main.Parent = ZeroDay
+Main.AnchorPoint = Vector2.new(0.5, 0.5)
+Main.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+Main.BorderSizePixel = 0
+Main.ClipsDescendants = true
+Main.Position = UDim2.new(0.499645382, 0, 0.53439492, 0)
+Main.Size = UDim2.new(0, 823, 0, 507)
+
+DropShadow.Name = "DropShadow"
+DropShadow.Parent = Main
+DropShadow.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+DropShadow.BackgroundTransparency = 1.000
+DropShadow.BorderSizePixel = 0
+DropShadow.Position = UDim2.new(-0.207246169, 0, -0.453596145, 0)
+DropShadow.Size = UDim2.new(0, 1111, 0, 347)
+DropShadow.Image = "rbxassetid://4996891970"
+DropShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+
+Top.Name = "Top"
+Top.Parent = Main
+Top.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Top.BorderSizePixel = 0
+Top.Size = UDim2.new(0, 823, 0, 100)
+
+UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(170, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(8, 7, 7)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255))}
+UIGradient_2.Parent = Top
+
+TabTitle.Name = "TabTitle"
+TabTitle.Parent = Top
+TabTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TabTitle.BackgroundTransparency = 1.000
+TabTitle.BorderSizePixel = 0
+TabTitle.Position = UDim2.new(0.121506684, 0, 0, 0)
+TabTitle.Size = UDim2.new(0, 722, 0, 100)
+TabTitle.Font = Enum.Font.SourceSans
+TabTitle.Text = title
+TabTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+TabTitle.TextSize = 50.000
+TabTitle.TextWrapped = true
+
+TabsListButton.Name = "TabsListButton"
+TabsListButton.Parent = Top
+TabsListButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TabsListButton.BackgroundTransparency = 0.700
+TabsListButton.BorderSizePixel = 0
+TabsListButton.Size = UDim2.new(0, 100, 0, 100)
+TabsListButton.Image = "rbxassetid://6764432408"
+TabsListButton.ImageRectOffset = Vector2.new(0, 300)
+TabsListButton.ImageRectSize = Vector2.new(50, 50)
+
+TabButtonBack.Name = "TabButtonBack"
+TabButtonBack.Parent = Main
+TabButtonBack.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+TabButtonBack.BorderSizePixel = 0
+TabButtonBack.Position = UDim2.new(-0.296000004, 0, 0, 0)
+TabButtonBack.Size = UDim2.new(0, 200, 0, 507)
+
+TabButtons.Name = "TabButtons"
+TabButtons.Parent = TabButtonBack
+TabButtons.Active = true
+TabButtons.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+TabButtons.BackgroundTransparency = 1.000
+TabButtons.BorderSizePixel = 0
+TabButtons.Position = UDim2.new(0, 0, 0.0216962527, 0)
+TabButtons.Size = UDim2.new(0, 200, 0, 485)
+TabButtons.CanvasSize = UDim2.new(0, 0, 0, 0)
+TabButtons.ScrollBarThickness = 0
+
+UIListLayout.Parent = TabButtons
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0.00999999978, 0)
+
+TabsMain.Name = "TabsMain"
+TabsMain.Parent = Main
+TabsMain.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TabsMain.BackgroundTransparency = 1.000
+TabsMain.BorderSizePixel = 0
+TabsMain.Position = UDim2.new(0, 0, 0.197238654, 0)
+TabsMain.Size = UDim2.new(0, 822, 0, 407)
+
+-- Scripts:
+
+local function VZFXWXZ_fake_script() -- Background.LocalScript 
+	local script = Instance.new('LocalScript', Background)
+
+	local RS = game:GetService("RunService")
+	
+	local rainbow = script.Parent  -- GUI object
+	local grad = rainbow.UIGradient
+	
+	local counter = 0       -- phase shift 
+	local w = math.pi / 500  -- frequency 
+	local CS = {}           -- colorsequence table
+	local num = 15 			-- number of colorsequence points (maxed at 15 or 16 I believe)
+	local frames = 0		-- frame counter, used to buffer if you want lower framerate updates
+	
+	RS.Heartbeat:Connect(function()
+		if math.fmod(frames, 2) == 0 then
+			for i = 0, num do
+				local c = Color3.fromRGB(127 * math.sin(w*i + counter) + 128, 127 * math.sin(w*i + 2 * math.pi/3 + counter) + 128, 127*math.sin(w*i + 4*math.pi/3 + counter) + 128)
+				table.insert(CS, i+1, ColorSequenceKeypoint.new(i/num, c))
+			end
+			grad.Color = ColorSequence.new(CS)
+			CS = {}
+			counter = counter + math.pi/40
+			if (counter >= math.pi * 2) then
+				counter = 0
+			end
+		end
+		if frames >= 1000 then
+			frames = 0
+		end
+		frames = frames + .5
+	end)
+end
+coroutine.wrap(VZFXWXZ_fake_script)()
+local function BZHA_fake_script() -- Top.LocalScript 
+	local script = Instance.new('LocalScript', Top)
+
+	local RS = game:GetService("RunService")
+	
+	local rainbow = script.Parent  -- GUI object
+	local grad = rainbow.UIGradient
+	
+	local counter = 0       -- phase shift 
+	local w = math.pi / 500  -- frequency 
+	local CS = {}           -- colorsequence table
+	local num = 15 			-- number of colorsequence points (maxed at 15 or 16 I believe)
+	local frames = 0		-- frame counter, used to buffer if you want lower framerate updates
+	
+	RS.Heartbeat:Connect(function()
+		if math.fmod(frames, 2) == 0 then
+			for i = 0, num do
+				local c = Color3.fromRGB(127 * math.sin(w*i + counter) + 128, 127 * math.sin(w*i + 2 * math.pi/3 + counter) + 128, 127*math.sin(w*i + 4*math.pi/3 + counter) + 128)
+				table.insert(CS, i+1, ColorSequenceKeypoint.new(i/num, c))
+			end
+			grad.Color = ColorSequence.new(CS)
+			CS = {}
+			counter = counter + math.pi/40
+			if (counter >= math.pi * 2) then
+				counter = 0
+			end
+		end
+		if frames >= 1000 then
+			frames = 0
+		end
+		frames = frames + .5
+	end)
+end
+coroutine.wrap(BZHA_fake_script)()
+local function KCHAXKI_fake_script() -- TabsListButton.ToggleTabsList 
+	local script = Instance.new('LocalScript', TabsListButton)
+
+	local list = script.Parent.Parent.Parent.TabButtonBack
+	local toggled = false
+	
+	script.Parent.MouseButton1Down:Connect(function()
+		if toggled == false then
+			script.Parent.Transparency = 1
+			game:GetService("TweenService"):Create(list,TweenInfo.new(0.2,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),{Position = UDim2.new(0, 0,0, 0)}):Play()
+			game:GetService("TweenService"):Create(script.Parent,TweenInfo.new(0.2,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),{Position = UDim2.new(0.243, 0,0, 0)}):Play()
+			toggled = true
+		else
+			script.Parent.Transparency = 0.7
+			game:GetService("TweenService"):Create(list,TweenInfo.new(0.2,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),{Position = UDim2.new(-0.296, 0,0, 0)}):Play()
+			game:GetService("TweenService"):Create(script.Parent,TweenInfo.new(0.2,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),{Position = UDim2.new(0, 0,0, 0)}):Play()
+			toggled = false
+		end
+	end)
+end
+coroutine.wrap(KCHAXKI_fake_script)()
+	
+	local tabs = {}
+	
+	function tabs:Tab(title)
+		
+		local TabButtonTemplate = Instance.new("TextButton")
+		local TabTemplate = Instance.new("ScrollingFrame")
+		local UIListLayout_2 = Instance.new("UIListLayout")
+		
+		TabButtonTemplate.Name = "TabButtonTemplate"
+		TabButtonTemplate.Parent = TabButtons
+		TabButtonTemplate.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+		TabButtonTemplate.BorderSizePixel = 0
+		TabButtonTemplate.Position = UDim2.new(0, 0, 0.0216962527, 0)
+		TabButtonTemplate.Size = UDim2.new(0, 186, 0, 50)
+		TabButtonTemplate.Font = Enum.Font.SourceSans
+		TabButtonTemplate.Text = title
+		TabButtonTemplate.TextColor3 = Color3.fromRGB(255, 255, 255)
+		TabButtonTemplate.TextScaled = true
+		TabButtonTemplate.TextSize = 14.000
+		TabButtonTemplate.TextWrapped = true
+		
+		TabTemplate.Name = "TabTemplate"
+		TabTemplate.Parent = TabsMain
+		TabTemplate.Active = true
+		TabTemplate.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TabTemplate.BackgroundTransparency = 1.000
+		TabTemplate.BorderSizePixel = 0
+		TabTemplate.Position = UDim2.new(0.0121654505, 0, 0.0221130215, 0)
+		TabTemplate.Size = UDim2.new(0, 802, 0, 389)
+		TabTemplate.CanvasSize = UDim2.new(0, 0, 0, 0)
+		TabTemplate.ScrollBarThickness = 0
+
+		UIListLayout_2.Parent = TabTemplate
+		UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+		UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+		UIListLayout_2.Padding = UDim.new(0.0199999996, 0)
+		
+		TabButtonTemplate.MouseButton1Down:Connect(function()
+			for i,v in pairs(TabsMain:GetChildren()) do
+				if v:IsA("ScrollingFrame") then
+					v.Visible = false
+				end
+				TabTemplate.Visible = true
+			end
+		end)
+		
+		TabButtons.CanvasSize = UDim2.new(0, UIListLayout.AbsoluteContentSize.X, 0, UIListLayout.AbsoluteContentSize.Y)
+		
+		local objects = {}
+		
+		function objects:Button(title,desc,callback)
+			
+			if desc == "" then
+				desc = "There is no description for this button."
+			end
+			
+			local ButtonDescriptionExpanded = false
+			local ButtonTemplate = Instance.new("TextButton")
+			local ButtonTitle = Instance.new("TextLabel")
+			local ExpandDescription = Instance.new("ImageButton")
+			local ButtonDescription = Instance.new("TextLabel")
+
+			ButtonTemplate.Name = "ButtonTemplate"
+			ButtonTemplate.Parent = TabTemplate
+			ButtonTemplate.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+			ButtonTemplate.BorderSizePixel = 0
+			ButtonTemplate.Position = UDim2.new(0.0249376558, 0, 0, 0)
+			ButtonTemplate.Size = UDim2.new(0, 762, 0, 57)
+			ButtonTemplate.Font = Enum.Font.SourceSans
+			ButtonTemplate.Text = ""
+			ButtonTemplate.TextColor3 = Color3.fromRGB(255, 255, 255)
+			ButtonTemplate.TextScaled = true
+			ButtonTemplate.TextSize = 14.000
+			ButtonTemplate.TextWrapped = true
+
+			ButtonTitle.Name = "ButtonTitle"
+			ButtonTitle.Parent = ButtonTemplate
+			ButtonTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			ButtonTitle.BackgroundTransparency = 1.000
+			ButtonTitle.BorderSizePixel = 0
+			ButtonTitle.Position = UDim2.new(0.027559055, 0, 0.0526315793, 0)
+			ButtonTitle.Size = UDim2.new(0, 658, 0, 50)
+			ButtonTitle.Font = Enum.Font.SourceSans
+			ButtonTitle.Text = title
+			ButtonTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+			ButtonTitle.TextSize = 40.000
+			ButtonTitle.TextWrapped = true
+			ButtonTitle.TextXAlignment = Enum.TextXAlignment.Left
+
+			ExpandDescription.Name = "ExpandDescription"
+			ExpandDescription.Parent = ButtonTemplate
+			ExpandDescription.BackgroundTransparency = 1.000
+			ExpandDescription.BorderSizePixel = 0
+			ExpandDescription.Position = UDim2.new(0.92125988, 0, 0.061403513, 0)
+			ExpandDescription.Size = UDim2.new(0, 50, 0, 50)
+			ExpandDescription.ZIndex = 2
+			ExpandDescription.Image = "rbxassetid://3926305904"
+			ExpandDescription.ImageRectOffset = Vector2.new(564, 284)
+			ExpandDescription.ImageRectSize = Vector2.new(36, 36)
+
+			ButtonDescription.Name = "ButtonDescription"
+			ButtonDescription.Parent = ButtonTemplate
+			ButtonDescription.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			ButtonDescription.BackgroundTransparency = 1.000
+			ButtonDescription.BorderSizePixel = 0
+			ButtonDescription.Position = UDim2.new(0.0196850393, 0, 0.495652169, 0)
+			ButtonDescription.Size = UDim2.new(0, 731, 0, 50)
+			ButtonDescription.Font = Enum.Font.SourceSans
+			ButtonDescription.Text = desc
+			ButtonDescription.TextColor3 = Color3.fromRGB(255, 255, 255)
+			ButtonDescription.TextSize = 30.000
+			ButtonDescription.TextTransparency = 1.000
+			
+			ButtonTemplate.MouseButton1Down:Connect(function()
+				pcall(callback)
+			end)
+			
+			ExpandDescription.MouseButton1Down:Connect(function()
+				if ButtonDescriptionExpanded == false then
+					game:GetService("TweenService"):Create(ButtonTemplate,TweenInfo.new(0.2,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),{Size = UDim2.new(0, 762,0, 115)}):Play()
+					game:GetService("TweenService"):Create(ButtonDescription,TweenInfo.new(0.2,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),{TextTransparency = 0}):Play()
+					game:GetService("TweenService"):Create(ExpandDescription,TweenInfo.new(0.2,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),{Rotation = 180}):Play()
+					TabTemplate.CanvasSize = UDim2.new(0, UIListLayout_2.AbsoluteContentSize.X, 0, UIListLayout_2.AbsoluteContentSize.Y)
+					ButtonDescriptionExpanded = true
+				else
+					game:GetService("TweenService"):Create(ButtonTemplate,TweenInfo.new(0.2,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),{Size = UDim2.new(0, 762,0, 57)}):Play()
+					game:GetService("TweenService"):Create(ButtonDescription,TweenInfo.new(0.2,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),{TextTransparency = 1}):Play()
+					game:GetService("TweenService"):Create(ExpandDescription,TweenInfo.new(0.2,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),{Rotation = 0}):Play()
+					TabTemplate.CanvasSize = UDim2.new(0, UIListLayout_2.AbsoluteContentSize.X, 0, UIListLayout_2.AbsoluteContentSize.Y)
+					ButtonDescriptionExpanded = false
+				end
+			end)
+			
+			TabTemplate.CanvasSize = UDim2.new(0, UIListLayout_2.AbsoluteContentSize.X, 0, UIListLayout_2.AbsoluteContentSize.Y)
+			
+		end
+		return objects
+		
+	end
+	return tabs
+	
+end
+return zerodaylib
