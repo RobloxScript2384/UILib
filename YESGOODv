@@ -91,6 +91,7 @@ TabButtonBack.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 TabButtonBack.BorderSizePixel = 0
 TabButtonBack.Position = UDim2.new(-0.296000004, 0, 0, 0)
 TabButtonBack.Size = UDim2.new(0, 200, 0, 507)
+TabButtonBack.ZIndex = 2
 
 TabButtons.Name = "TabButtons"
 TabButtons.Parent = TabButtonBack
